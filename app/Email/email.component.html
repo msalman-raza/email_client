@@ -1,0 +1,9 @@
+<div class="row email-wrapper">
+    <div class="col-md-3 email-container">
+        <email-list (onShowDetail)="showDetail($event)"></email-list>
+    </div>
+
+    <div class="col-md-9 email-detail">
+        <email-detail [email]="emailDetail"></email-detail>
+    </div>
+</div>

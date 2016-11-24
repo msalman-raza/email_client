@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset=UTF-8>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Email Client</title>
+
+    <!-- build:vendor_styles -->
+    <link rel="stylesheet" type="text/css" href="css/vendor.css" />
+    <!-- endbuild -->
+    <!-- build:styles -->
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
+    <!-- endbuild -->
+  </head>
+  <body>
+    <div id="wrapper">
+      <app>
+        Loading...
+      </app>
+    </div>
+
+
+    <!-- build:vendor -->
+    <script src="node_modules/systemjs/dist/system.src.js"></script>
+    <script src="systemjs.config.js"></script>
+    <!-- endbuild -->
+
+    <!-- build:app -->
+    <script>
+      System.import('app/vendor').then(function() {
+        System.import('app').catch(function(err){ console.error(err); });
+      });
+    </script>
+    <!-- endbuild -->
+
+  </body>
+</html>

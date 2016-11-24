@@ -1,0 +1,32 @@
+<div *ngIf="email">
+    <div class="btn-group">
+        <a  class="btn btn-default">
+            <i class="fa fa-mail-reply"></i>
+            Reply</a>
+        <a  class="btn btn-default">
+            <i class="fa fa-mail-forward"></i>
+            Forward</a>
+        <a (click)="deleteEmail()"  class="btn btn-default">
+            <i class="fa fa-times"></i>
+            Delete</a>
+    </div>
+
+    <div class="email-headers">
+        <div class="col-sm-1 icon">
+            <i class="fa fa-user"></i>
+        </div>
+        <div class="col-sm-11">
+            <div class="email-time">{{ email.time_sent | date:'EEE dd MMM, HH:mm'}}</div>
+            <div class="email-sender">{{email.sender}}</div>
+            <div class="email-subject">{{email.subject}}</div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+    <div class="email-body">
+        {{email.message}}
+    </div>
+</div>
+<div class="welcome-email-message" *ngIf="!email">
+    <h3>Welcome to email client.</h3>
+    <p>Select email from list</p>
+</div>

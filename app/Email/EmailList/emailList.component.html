@@ -1,0 +1,20 @@
+<div class="toggle-email-button" (click)="isCollapsed = !isCollapsed">
+    Show Email List
+    <i class="fa fa-caret-down pull-right"></i>
+</div>
+<div class="email-list" [collapse]="isCollapsed">
+    <ul>
+        <li *ngFor="let email of emails" [class.active]="email.uid == detailEmailUid">
+            <a  href="#" (click)="showEmailDetail(email)" [class.unseen]="!email.isSeen"  >
+                <div>
+                    <h3>{{email.sender}}</h3>
+                    <span>{{email.subject}}</span>
+                    <span class="time">{{ email.time_sent * 1000 | date:'EEE dd MMM, HH:mm'}}</span>
+                </div>
+            </a>
+            <a (click)="deleteEmail(email)" class="email-del">
+                <i class="fa fa-times"></i>
+            </a>
+        </li>
+    </ul>
+</div>

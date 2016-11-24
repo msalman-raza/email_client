@@ -1,0 +1,187 @@
+@import "./libraries/variables";
+@import "./libraries/mixins";
+@import "../bootstrap/bootstrap/variables";
+
+
+
+body {
+    background-color: $gray-lightest;
+    padding-top: 50px;
+}
+
+#wrapper {
+    width: 100%;
+}
+
+#page-wrapper {
+    padding: 0 15px;
+    min-height: 568px;
+    background-color: white;
+}
+@media(min-width:768px) {
+    #page-wrapper {
+        position: inherit;
+        margin: 0 0 0 250px;
+        padding: 0 30px;
+        border-left: 1px solid darken($gray-lightest, 6.5%);
+    }
+}
+.email-wrapper ,.email-container{
+    position: relative;
+}
+.email-detail{
+    padding: 20px 10px;
+    .btn-group{
+        .btn{
+            background: none;
+            border: none;
+            border-radius: 0;
+            &:hover{
+                background: $hover-color;
+            }
+        }
+    }
+    .email-headers{
+        border-bottom: 1px solid $gray-dark;
+        padding: 10px 0;
+        .icon{
+            font-size: 50px;
+        }
+        .email-time{
+            color: $gray-light;
+        }
+        .email-sender{
+            font-size: 1.25em;
+            font-weight: 400;
+        }
+        .email-subject{
+            font-weight: 600;
+        }
+    }
+    .email-body{
+        padding: 0.5em 0.3em;
+        line-height: 1.5em;
+        font-size: 1.2em;
+    }
+
+}
+.email-list{
+    min-height: 100rem;
+    border-right: 2px solid $gray-darker;
+    left: 0;
+    ul{
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        li{
+            border-bottom: 1px solid $gray;
+            position: relative;
+            &:last-child {
+                border: none;
+            }
+            a{
+                display: block;
+                padding: 10px 0 10px 10px;
+                margin-right: 35px;
+                white-space: nowrap;
+                color: #000;
+                font-weight: normal;
+                font-weight: 400;
+                h3{
+                    margin: 0;
+                    font-size: 1.15em;
+                    line-height: 1.5em;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    font-weight: 300;
+
+                }
+                span{
+                    display: block;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    &.time{
+                        color: $gray-light;
+                        font-size: 0.8em;
+                    }
+                }
+                &:hover,&:focus,&:active{
+                    text-decoration: none;
+                }
+
+                &.unseen{
+                    font-weight: 600;
+                    text-decoration: none;
+                    h3{
+                        font-size: 1.25em;
+                        font-weight: 600;
+                    }
+                }
+            }
+            a.email-del{
+                margin: 0;
+                padding: 0;
+                float: right;
+                width: 25px;
+                height: 25px;
+                position: absolute;
+                right: 5px;
+                top: 15px;
+                font-size: 18px;
+                display: none;
+                cursor: pointer;
+            }
+            &:hover{
+                background: $hover-color;
+                a{
+                    border-left: 3px solid lightblue;
+                    padding-left: 7px;
+                }
+                a.email-del{
+                    border: none;
+                    padding: 0;
+                    display: block;
+                }
+            }
+            &.active{
+                background: #E1E1E1;
+            }
+        }
+    }
+}
+.toggle-email-button{
+    @include linearGradient(#cccccc, #666666);
+    color: $gray-darkest;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 15px;
+    border: 2px solid #000;
+    color: $gray-lightest;
+    cursor: pointer;
+    display: none;
+    i{
+        margin-top: 5px;
+    }
+
+}
+.welcome-email-message{
+    text-align: center;
+    font-size: 1.5em;
+    padding: 4em 0;
+    h3{
+        font-size: 2em;
+    }
+}
+@media (max-width: $screen-sm-max) {
+    .toggle-email-button{
+        display: block;
+    }
+
+}
+@media (min-width: $screen-sm-max) {
+    .email-list {
+        &.collapse {
+            display: block !important;
+        }
+    }
+}
